@@ -21,7 +21,7 @@ public function index(Post $post)
 {
    // return $post->get();
   // view('index');
-   return view('index')->with(['posts' => $post->get()]);  
+   return view('index')->with(['posts' => $post->getPaginateByLimit()]);  
 }
 }
 
