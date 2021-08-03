@@ -6,7 +6,7 @@
 </head>
 
 <body>
-
+    <p class-"edit">[<a href="/posts/{{$post->id}}/edit">edit</a>]</p>
     <!--<h1 class='title'>{{ $post->title }}</h1>-->
     <div class='post'>
         <h1 class='title'>{{ $post->title }}</h1>
