@@ -2,16 +2,9 @@
 
 namespace App\Http\Controllers;
 
-//use App\controller;
-//use Illuminate\Http\Request;
-//use App\Http\Controllers\Post;
-//use App\PostController;
-
 use App\Post;
-//use App\Http\Controllers\Controller\Post;
-//use App\Console\Commands\Inspire;
-use Illuminate\Http\Request;
-//use Resources\views\index;
+//use Illuminate\Http\Requests\PostRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -27,6 +20,19 @@ public function index(Post $post)
 public function show(Post $post)
 {
     return view('show')->with(['post' => $post]);
+}
+
+public function create()
+{
+    return view('create');
+}
+
+public function store(PostRequest $request, Post $post)
+{
+    $input = $request['post'];
+    $post->fill($input)->save();
+    return redirect('/posts/' . $post->id);
+    //dd($request->all());
 }
 }
 
